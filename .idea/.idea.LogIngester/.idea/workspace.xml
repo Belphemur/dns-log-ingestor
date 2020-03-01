@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="" />
+    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/LogIngester.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/LogIngester.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Startup.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,19 +24,33 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7BF30116-82F1-4B18-A6E0-358914B66C1D/6/IConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CC9A36AF-C5ED-4B22-B18A-7E1676C55E5E/8/InfluxClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F3325C05-7891-45B4-AC78-327FC18BDC7C/18C/MvcCoreServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0A34FBB7-033C-43D2-B412-0EA93536E085/9/HttpsRedirectionBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CCD71D5C-6409-42FE-B7D4-84249D40542B/1/MvcServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/Configuration/InfluxDb.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8DA5E36-5373-4031-BC4F-5536C9B0AA38/4/HostingHostBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CC9A36AF-C5ED-4B22-B18A-7E1676C55E5E/8/InfluxClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F61998C3-432A-421C-8B67-265CB57C2A5A/a6/10ae9c70/LoggingServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F3325C05-7891-45B4-AC78-327FC18BDC7C/8/ControllerEndpointRouteBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/LogIngester/Startup.cs" />
         <option value="$PROJECT_DIR$/LogIngester/Configuration/InfluxDb.cs" />
         <option value="$PROJECT_DIR$/LogIngester/appsettings.json" />
         <option value="$PROJECT_DIR$/LogIngester/appsettings.Development.json" />
+        <option value="$PROJECT_DIR$/LogIngester/Dns/Model/DnsLog.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/Dns/Controllers/Ingest.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/Dns/Controllers/IngestController.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/Properties/launchSettings.json" />
+        <option value="$PROJECT_DIR$/LogIngester/Program.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/Startup.cs" />
       </list>
     </option>
   </component>
@@ -41,6 +67,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TWShift.3" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.LogIngester">
     <configuration name="LogIngester" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -84,7 +118,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583099113658</updated>
-      <workItem from="1583099114809" duration="1527000" />
+      <workItem from="1583099114809" duration="4038000" />
+      <workItem from="1583103177914" duration="48000" />
     </task>
     <servers />
   </component>
@@ -96,16 +131,125 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583101990239">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583101990239" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1583103157567">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157567" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.4.center" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.4.left" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="348" key="GridCell.Tab.4.right" timestamp="1583103157568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
     <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size" timestamp="1583099191064">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1583099191064" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1583101521368">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583101521368" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs</url>
+          <line>23</line>
+          <properties documentPath="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" initialLine="23">
+            <startOffsets>
+              <option value="632" />
+            </startOffsets>
+            <endOffsets>
+              <option value="694" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

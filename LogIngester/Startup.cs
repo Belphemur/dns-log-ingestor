@@ -28,8 +28,9 @@ namespace LogIngester
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddScoped<InfluxClient>(provider =>
+            services.AddHttpClient();
+            services.AddControllers().AddNewtonsoftJson();
+            services.AddSingleton(provider =>
             {
                 var influxDbConfig = new InfluxDb();
                 Configuration.GetSection("InfluxDb").Bind(influxDbConfig);
@@ -44,8 +45,6 @@ namespace LogIngester
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
