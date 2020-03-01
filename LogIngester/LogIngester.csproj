@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Dns\Controllers" />
+      <Folder Include="Dns\Model" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Vibrant.InfluxDB.Client" Version="4.0.2" />
+    </ItemGroup>
+
+
+</Project>
