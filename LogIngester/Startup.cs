@@ -1,18 +1,15 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using LogIngester.DnsIngest.Configuration;
 using LogIngester.DnsIngest.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Polly;
+using Polly.Extensions.Http;
 using VictoriaMetrics.VictoriaMetrics.Client;
 using VictoriaMetrics.VictoriaMetrics.Models.Configuration;
 using VictoriaMetrics.VictoriaMetrics.Services.Converters;
@@ -44,8 +41,8 @@ namespace LogIngester
                 Configuration.GetSection("VictoriaMetrics").Bind(influxDbConfig);
                 return influxDbConfig;
             });
-            
-            
+
+
             services.AddSingleton(provider =>
             {
                 var workerConfig = new WorkerConfig();
@@ -53,23 +50,34 @@ namespace LogIngester
                 return workerConfig;
             });
 
-            services.AddHttpClient<IVictoriaMetricClient, VictoriaMetricClient>();
+            services.AddHttpClient<IVictoriaMetricClient, VictoriaMetricClient>()
+                    .SetHandlerLifetime(TimeSpan.FromHours(1)) //Set lifetime to five minutes
+                    .AddPolicyHandler(GetRetryPolicy());
             services.AddSingleton<IIngestWorker, IngestWorker>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+        }
+
+        private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        {
+            var jitterer = new Random();
+            return HttpPolicyExtensions
+                   .HandleTransientHttpError()
+                   .OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
+                   .WaitAndRetryAsync(6, // exponential back-off plus some jitter
+                       retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+                                       + TimeSpan.FromMilliseconds(jitterer.Next(0, 100))
+                   );
         }
     }
 }
