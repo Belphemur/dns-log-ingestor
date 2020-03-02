@@ -1,6 +1,6 @@
-using VictoriaMetrics.VictoriaMetrics.Model;
+using VictoriaMetrics.VictoriaMetrics.Models.Metrics;
 
-namespace VictoriaMetrics.VictoriaMetrics.Formatter
+namespace VictoriaMetrics.VictoriaMetrics.Services.Formatters
 {
     public interface IMetricFormatter<T>
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace VictoriaMetrics.Attributes
+namespace VictoriaMetrics.VictoriaMetrics.Models.Attributes
 {
     public abstract class NamedAttribute : Attribute
     {
