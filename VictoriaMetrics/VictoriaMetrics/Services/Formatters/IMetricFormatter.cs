@@ -10,5 +10,10 @@ namespace VictoriaMetrics.VictoriaMetrics.Services.Formatters
         /// <param name="metric"></param>
         /// <returns></returns>
         T ToLine(Metric metric);
+
+        /// <summary>
+        /// Precision of the Timestamp
+        /// </summary>
+        string Precision { get; }
     }
 }

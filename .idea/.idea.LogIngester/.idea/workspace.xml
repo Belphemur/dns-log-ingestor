@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Cleanup import">
+    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Working client">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Content/CompressedContent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Content/CompressedContent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Converters/MetricConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Converters/MetricConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/IMetricFormatter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/IMetricFormatter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/LineFormatter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/LineFormatter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +93,6 @@
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/WorkerConfig.cs" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IIngestWorker.cs" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
-        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/InfluxDbConfig.cs" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/VictoriaConfig.cs" />
         <option value="$PROJECT_DIR$/LogIngester/VictoriaMetrics/Annotations.cs" />
@@ -109,18 +111,20 @@
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Exceptions/VictoriaMetricClient.FieldException.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Exceptions/FieldException.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Exceptions/AttributeNotFound.cs" />
-        <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Converters/MetricConverter.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Extensions/Linq.cs" />
-        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" />
         <option value="$PROJECT_DIR$/LogIngester/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/LogIngester/appsettings.json" />
         <option value="$PROJECT_DIR$/LogIngester/Polly/PollyConfigurationOption.cs" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" />
         <option value="$PROJECT_DIR$/LogIngester/Startup.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Content/GzipCompressedContent.cs" />
-        <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Content/CompressedContent.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" />
+        <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Converters/MetricConverter.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" />
+        <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/LineFormatter.cs" />
+        <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" />
       </list>
     </option>
   </component>
@@ -170,7 +174,103 @@
             </list>
           </option>
           <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;nope.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/ingest" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;yatta.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/ingest" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;ground.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/ingest" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;dungeon.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/ingest" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;facebook.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -219,30 +319,6 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;test.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:5000/ingest" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;facebook.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -532,7 +608,7 @@
       <workItem from="1583099114809" duration="4038000" />
       <workItem from="1583103177914" duration="48000" />
       <workItem from="1583103238064" duration="10030000" />
-      <workItem from="1583113330955" duration="10518000" />
+      <workItem from="1583113330955" duration="12027000" />
     </task>
     <task id="LOCAL-00001" summary="First controller">
       <created>1583103271273</created>
@@ -632,7 +708,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583120799030</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Working client">
+      <created>1583124060361</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1583124060361</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +746,8 @@
     <MESSAGE value="First working version of log sender" />
     <MESSAGE value="Add Polly" />
     <MESSAGE value="Cleanup import" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup import" />
+    <MESSAGE value="Working client" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working client" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Code_Cleanup_Options" timestamp="1583120747322">
@@ -682,86 +766,86 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583109733327" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583124050027">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583124845754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583124050027" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583124050027">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583124845754" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583124845754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583124050027" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583124050027">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583124845754" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583124845754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583124050027" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583124050027">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583124845754" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583124845754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583124050027" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583123888858">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583124845754" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583124733622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733622" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583124733622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733622" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583124733622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733622" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583124733622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733622" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1583124733622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733622" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.4.bottom" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.4.center" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.4.center" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.4.left" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.4.left" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
-    <state width="1877" height="348" key="GridCell.Tab.4.right" timestamp="1583123888858">
+    <state width="1877" height="348" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
+    <state width="1877" height="348" key="GridCell.Tab.4.right" timestamp="1583124733623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583123888858" />
+    <state width="1877" height="348" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583124733623" />
     <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size" timestamp="1583113214502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -770,18 +854,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="721" y="200" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583122575379" />
-    <state x="765" y="231" key="RollbackChangesDialog" timestamp="1583123518064">
+    <state x="765" y="231" key="RollbackChangesDialog" timestamp="1583124068196">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="231" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583123518064" />
+    <state x="765" y="231" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583124068196" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1583101521368">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583101521368" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1583123608796">
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1583124418620">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1583123608796" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1583124418620" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583117050238">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -804,19 +888,6 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs</url>
-          <line>103</line>
-          <properties documentPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" initialLine="90">
-            <startOffsets>
-              <option value="4058" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4138" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8D12B97-8555-48F6-96B3-BBC6BF89FCBA/37/HttpClient.cs</url>
           <line>505</line>
           <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8D12B97-8555-48F6-96B3-BBC6BF89FCBA/37/HttpClient.cs" initialLine="505">
@@ -828,6 +899,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs</url>
+          <line>104</line>
+          <properties documentPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" initialLine="104">
+            <startOffsets>
+              <option value="4174" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4269" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -22,6 +22,11 @@ namespace LogIngester.DnsIngest.Controllers
         [HttpPost]
         public IActionResult Ingest([FromBody] DnsLog dnsLog, CancellationToken token)
         {
+            if (!dnsLog.Timestamp.HasValue)
+            {
+                dnsLog.Timestamp = DateTime.UtcNow;
+            }
+
             var response = new
             {
                 InQueue = _ingestWorker.AddToProcess(dnsLog)

@@ -16,7 +16,7 @@ namespace LogIngester.DnsIngest.Models
         }
 
         [Timestamp]
-        public DateTime Timestamp { get; } = DateTime.UtcNow;
+        public DateTime? Timestamp { get; set; }
 
         [Tag( "domain")]
         public string Domain { get; set; }

@@ -104,7 +104,7 @@ namespace VictoriaMetrics.VictoriaMetrics.Client
             var httpContent       = new StringContent(content, Encoding.UTF8, "application/x-www-form-urlencoded");
             var compressedContent = new CompressedContent(httpContent, CompressedContent.Compression.gzip);
 
-            return _httpClient.PostAsync("write", compressedContent, cancellationToken);
+            return _httpClient.PostAsync($"write?precision={_metricFormatter.Precision}", compressedContent, cancellationToken);
         }
     }
 }

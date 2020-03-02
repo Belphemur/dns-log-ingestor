@@ -7,6 +7,10 @@ namespace VictoriaMetrics.VictoriaMetrics.Services.Formatters
 {
     public class LineFormatter : IMetricFormatter<string>
     {
+        /// <summary>
+        /// Precision of the Timestamp
+        /// </summary>
+        public string Precision { get;  } = "ms";
         private string ToLine<T>(BaseModel<T> model)
         {
             return $"{model.Name}={model.Value}";
@@ -37,7 +41,7 @@ namespace VictoriaMetrics.VictoriaMetrics.Services.Formatters
             if (metric.Timestamp.HasValue)
             {
                 stringBuilder.Append(' ');
-                stringBuilder.Append(metric.Timestamp.Value.Ticks);
+                stringBuilder.Append(metric.Timestamp.Value.Millisecond);
             }
 
             return stringBuilder.ToString();

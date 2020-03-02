@@ -55,7 +55,7 @@ namespace VictoriaMetrics.VictoriaMetrics.Services.Converters
                             });
                             break;
                         case Timestamp time:
-                            timestamp = (DateTime) propertyInfo.GetValue(toConvert);
+                            timestamp = (DateTime?) propertyInfo.GetValue(toConvert);
                             break;
                     }
                 }
