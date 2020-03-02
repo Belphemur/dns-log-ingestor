@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Cleanup namespaces">
+    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Update ignore">
       <changelist_data />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/Client/VictoriaMetricClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/Client/VictoriaMetricClient.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +12,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/42/ValueType.cs" root0="SKIP_HIGHLIGHTING" />
@@ -622,7 +621,7 @@
       <workItem from="1583099114809" duration="4038000" />
       <workItem from="1583103177914" duration="48000" />
       <workItem from="1583103238064" duration="10030000" />
-      <workItem from="1583113330955" duration="17050000" />
+      <workItem from="1583113330955" duration="17464000" />
     </task>
     <task id="LOCAL-00001" summary="First controller">
       <created>1583103271273</created>
@@ -750,7 +749,21 @@
       <option name="project" value="LOCAL" />
       <updated>1583130718178</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Optimize bulk calls">
+      <created>1583130831059</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1583130831059</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Update ignore">
+      <created>1583130895208</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1583130895208</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,7 +798,9 @@
     <MESSAGE value="Add precision" />
     <MESSAGE value="Fix nanosecond problems" />
     <MESSAGE value="Cleanup namespaces" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup namespaces" />
+    <MESSAGE value="Optimize bulk calls" />
+    <MESSAGE value="Update ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update ignore" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -813,22 +828,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583109733327" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583128987715">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583130927455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583128987715" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583128987714">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583130927455" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583130927455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583128987714" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583128987714">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583130927455" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583130927455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583128987714" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583128987714">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583130927455" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583130927455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583128987714" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583130927455" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -913,6 +928,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1583125978236" />
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583130906365">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583130906365" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583126535752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -952,10 +971,10 @@
           <line>93</line>
           <properties documentPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" initialLine="104">
             <startOffsets>
-              <option value="3561" />
+              <option value="3532" />
             </startOffsets>
             <endOffsets>
-              <option value="3656" />
+              <option value="3627" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />

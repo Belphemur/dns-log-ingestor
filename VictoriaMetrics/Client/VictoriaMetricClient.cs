@@ -65,13 +65,13 @@ namespace VictoriaMetrics.Client
         /// <param name="metrics"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task SendBatchMetricsAsync(IEnumerable<Metric> metrics, CancellationToken cancellationToken)
+        public Task SendBatchMetricsAsync(IEnumerable<Metric> metrics, CancellationToken cancellationToken)
         {
             var chunks = metrics.Where(metric => metric.Fields.Count > 0).Chunk(100);
             var tasks = chunks.Select(chunk => string.Join("\n", chunk.Select(_metricFormatter.ToLine)))
                               .Select(content => WriteAsync(content, cancellationToken));
 
-            await Task.WhenAll(tasks);
+            return Task.WhenAll(tasks);
         }
 
         /// <summary>
