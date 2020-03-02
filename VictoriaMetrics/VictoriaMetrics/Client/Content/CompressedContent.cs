@@ -26,8 +26,9 @@ namespace VictoriaMetrics.VictoriaMetrics.Client.Content
         public CompressedContent(HttpContent content, Compression encodingType)
         {
             _originalContent = content ?? throw new ArgumentNullException(nameof(content));
+            _encodingType    = encodingType;
 
-            if (this._encodingType != Compression.gzip && this._encodingType != Compression.deflate)
+            if (_encodingType != Compression.gzip && _encodingType != Compression.deflate)
             {
                 throw new InvalidOperationException($"Encoding '{this._encodingType}' is not supported. Only supports {nameof(Compression.gzip)} or {nameof(Compression.deflate)} encoding.");
             }
@@ -61,7 +62,12 @@ namespace VictoriaMetrics.VictoriaMetrics.Client.Content
                     break;
             }
 
-            return _originalContent.CopyToAsync(compressedStream).ContinueWith(tsk => { compressedStream?.Dispose(); });
+            return _originalContent.CopyToAsync(compressedStream)
+                                   .ContinueWith(tsk =>
+                                   {
+                                       compressedStream?.Dispose();
+                                       _originalContent?.Dispose();
+                                   });
         }
     }
 }
