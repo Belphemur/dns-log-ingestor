@@ -26,7 +26,7 @@
         </e>
         <e p="LogIngester.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="LogIngester.AssemblyInfo.cs" t="Include" />
             </e>
@@ -43,7 +43,7 @@
       <e p="VictoriaMetrics" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netstandard2.1" t="Include">
               <e p="VictoriaMetrics.AssemblyInfo.cs" t="Include" />
             </e>

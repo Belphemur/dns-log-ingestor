@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using VictoriaMetrics.VictoriaMetrics.Models.Attributes;
+using VictoriaMetrics.Models.Attributes;
 
 namespace LogIngester.DnsIngest.Models
 {

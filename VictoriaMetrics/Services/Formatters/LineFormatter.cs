@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using VictoriaMetrics.VictoriaMetrics.Models.Metrics;
+using VictoriaMetrics.Models.Metrics;
 
-namespace VictoriaMetrics.VictoriaMetrics.Services.Formatters
+namespace VictoriaMetrics.Services.Formatters
 {
     public class LineFormatter : IMetricFormatter<string>
     {

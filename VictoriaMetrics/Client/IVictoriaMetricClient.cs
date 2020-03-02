@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using VictoriaMetrics.VictoriaMetrics.Models.Metrics;
+using VictoriaMetrics.Models.Metrics;
 
-namespace VictoriaMetrics.VictoriaMetrics.Client
+namespace VictoriaMetrics.Client
 {
     public interface IVictoriaMetricClient
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace VictoriaMetrics.VictoriaMetrics.Models.Metrics
+namespace VictoriaMetrics.Models.Metrics
 {
     /// <summary>
     /// Metric to register

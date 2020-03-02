@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
@@ -6,9 +7,8 @@ using LogIngester.DnsIngest.Configuration;
 using LogIngester.DnsIngest.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using VictoriaMetrics.VictoriaMetrics.Client;
+using VictoriaMetrics.Client;
 using Timer = System.Timers.Timer;
-
 
 namespace LogIngester.DnsIngest.Services
 {
@@ -76,7 +76,14 @@ namespace LogIngester.DnsIngest.Services
             var domainToSend = new ConcurrentDictionary<string, DnsLog>();
 
             long count = _logsToProcess.Count;
-            var  tasks = new List<Task>();
+            _logger.LogInformation("Processing {count} entries.", count);
+
+            if (count == 0)
+            {
+                return;
+            }
+
+            var tasks = new List<Task>();
 
             Task BuildTask()
             {
@@ -130,7 +137,18 @@ namespace LogIngester.DnsIngest.Services
 
             if (domainToSend.IsEmpty) return;
 
-            await _victoriaMetricClient.SendBatchMetricsAsync(domainToSend.Values, token);
+            try
+            {
+                await _victoriaMetricClient.SendBatchMetricsAsync(domainToSend.Values, token);
+            }
+            catch (Exception e)
+            {
+                _logger.LogCritical("Can't send log to VictoriaMetrics {e}", e);
+                foreach (var dnsLog in domainToSend.Values)
+                {
+                    _logsToProcess.Enqueue(dnsLog);
+                }
+            }
         }
     }
 }

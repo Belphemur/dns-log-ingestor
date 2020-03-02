@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Add precision">
+    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Fix nanosecond problems">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/LineFormatter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/LineFormatter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +58,7 @@
     <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Metric.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/BaseModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Field.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8DA5E36-5373-4031-BC4F-5536C9B0AA38/2/Host.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Tag.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/LineFormatter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7BF30116-82F1-4B18-A6E0-358914B66C1D/6/IConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
@@ -85,7 +87,6 @@
         <option value="$PROJECT_DIR$/LogIngester/Dns/Controllers/Ingest.cs" />
         <option value="$PROJECT_DIR$/LogIngester/Dns/Controllers/IngestController.cs" />
         <option value="$PROJECT_DIR$/LogIngester/Properties/launchSettings.json" />
-        <option value="$PROJECT_DIR$/LogIngester/Program.cs" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/WorkerConfig.cs" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IIngestWorker.cs" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
@@ -111,7 +112,6 @@
         <option value="$PROJECT_DIR$/LogIngester/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/LogIngester/appsettings.json" />
         <option value="$PROJECT_DIR$/LogIngester/Polly/PollyConfigurationOption.cs" />
-        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" />
         <option value="$PROJECT_DIR$/LogIngester/Startup.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Content/GzipCompressedContent.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Content/CompressedContent.cs" />
@@ -121,6 +121,9 @@
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/LineFormatter.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" />
+        <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics.csproj" />
+        <option value="$PROJECT_DIR$/LogIngester/Program.cs" />
       </list>
     </option>
   </component>
@@ -194,30 +197,6 @@
             </list>
           </option>
           <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;facebook.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:5000/ingest" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="*/*" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;nope.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
@@ -267,6 +246,30 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;dungeon.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:5000/ingest" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;Domain&quot;:  &quot;facebook.com&quot;,&#10;  &quot;State&quot;: &quot;Blocked&quot;,&#10;  &quot;Query&quot;: 1&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -545,7 +548,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.LogIngester">
+  <component name="RunManager" selected="Publish to folder.Publish LogIngester to folder">
+    <configuration name="Publish LogIngester to folder" type="DotNetFolderPublish" factoryName="Publish to folder" temporary="true">
+      <riderPublish runtime="Portable" target_folder="C:\Users\Antoine\source\repos\LogIngester\publish" target_framework="netcoreapp3.1" uuid_high="5980463877436950169" uuid_low="-6995638500325909386" />
+      <method v="2" />
+    </configuration>
     <configuration name="All in rest-api_1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http">
       <method v="2" />
     </configuration>
@@ -585,8 +592,17 @@
         <option name="Build" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.LogIngester" />
+      <item itemvalue=".NET Launch Settings Profile.LogIngester: IIS Express" />
+      <item itemvalue="HTTP Request.All in rest-api_1" />
+      <item itemvalue="HTTP Request.rest-api_1#1" />
+      <item itemvalue="HTTP Request.rest-api_1#186" />
+      <item itemvalue="Publish to folder.Publish LogIngester to folder" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Publish to folder.Publish LogIngester to folder" />
         <item itemvalue="HTTP Request.rest-api_1#186" />
       </list>
     </recent_temporary>
@@ -604,7 +620,7 @@
       <workItem from="1583099114809" duration="4038000" />
       <workItem from="1583103177914" duration="48000" />
       <workItem from="1583103238064" duration="10030000" />
-      <workItem from="1583113330955" duration="12578000" />
+      <workItem from="1583113330955" duration="16302000" />
     </task>
     <task id="LOCAL-00001" summary="First controller">
       <created>1583103271273</created>
@@ -718,7 +734,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583125395281</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fix nanosecond problems">
+      <created>1583126014523</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1583126014523</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -751,17 +774,26 @@
     <MESSAGE value="Cleanup import" />
     <MESSAGE value="Working client" />
     <MESSAGE value="Add precision" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add precision" />
+    <MESSAGE value="Fix nanosecond problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix nanosecond problems" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Code_Cleanup_Options" timestamp="1583120747322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Code_Cleanup_Options/0.0.1920.1040@0.0.1920.1040" timestamp="1583120747322" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583101990239">
+    <state x="691" y="241" key="#Publish_LogIngester_to_folder" timestamp="1583126510983">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583101990239" />
+    <state x="691" y="241" key="#Publish_LogIngester_to_folder/0.0.1920.1040@0.0.1920.1040" timestamp="1583126510983" />
+    <state x="691" y="241" key="#Publish_LogIngester_to_folder_(1)" timestamp="1583126559175">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="691" y="241" key="#Publish_LogIngester_to_folder_(1)/0.0.1920.1040@0.0.1920.1040" timestamp="1583126559175" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583128353325">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583128353325" />
     <state x="707" y="385" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1583120757662">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -770,86 +802,86 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583109733327" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1583125983583">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583128987715">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583125983583" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1583125983583">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583128987715" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583128987714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583125983583" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1583125983583">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583128987714" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583128987714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583125983583" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1583125983583">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583128987714" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583128987714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583125983583" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583125971985">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583128987714" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583125971985" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583125971985">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583125971985" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583125971985">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583125971985" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583125971985">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583125971985" />
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
-    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1583125945537">
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945537" />
-    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1583125945537">
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945537" />
-    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
-    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
-    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
-    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
-    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
-    <state width="1877" height="348" key="GridCell.Tab.4.bottom" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
-    <state width="1877" height="348" key="GridCell.Tab.4.center" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.4.center" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
-    <state width="1877" height="348" key="GridCell.Tab.4.left" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.4.left" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
-    <state width="1877" height="348" key="GridCell.Tab.4.right" timestamp="1583125945538">
+    <state width="1877" height="348" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
+    <state width="1877" height="348" key="GridCell.Tab.4.right" timestamp="1583127281455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583125945538" />
+    <state width="1877" height="348" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583127281455" />
     <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size" timestamp="1583113214502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -870,10 +902,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1583125978236" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583117050238">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583126535752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583117050238" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583126535752" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

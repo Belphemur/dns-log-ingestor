@@ -1,6 +1,6 @@
 using System;
 
-namespace VictoriaMetrics.VictoriaMetrics.Exceptions
+namespace VictoriaMetrics.Exceptions
 {
     public class AttributeNotFound : ArgumentException
     {

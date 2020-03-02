@@ -1,21 +1,19 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using VictoriaMetrics.VictoriaMetrics.Client.Content;
-using VictoriaMetrics.VictoriaMetrics.Exceptions;
-using VictoriaMetrics.VictoriaMetrics.Extensions;
-using VictoriaMetrics.VictoriaMetrics.Models.Configuration;
-using VictoriaMetrics.VictoriaMetrics.Models.Metrics;
-using VictoriaMetrics.VictoriaMetrics.Services.Converters;
-using VictoriaMetrics.VictoriaMetrics.Services.Formatters;
+using VictoriaMetrics.Client.Content;
+using VictoriaMetrics.Exceptions;
+using VictoriaMetrics.Extensions;
+using VictoriaMetrics.Models.Configuration;
+using VictoriaMetrics.Models.Metrics;
+using VictoriaMetrics.Services.Converters;
+using VictoriaMetrics.Services.Formatters;
 
-namespace VictoriaMetrics.VictoriaMetrics.Client
+namespace VictoriaMetrics.Client
 {
     public class VictoriaMetricClient : IVictoriaMetricClient
     {

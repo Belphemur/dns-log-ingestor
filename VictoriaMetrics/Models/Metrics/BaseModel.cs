@@ -1,4 +1,4 @@
-namespace VictoriaMetrics.VictoriaMetrics.Models.Metrics
+namespace VictoriaMetrics.Models.Metrics
 {
     public abstract class BaseModel<TValue>
     {

@@ -1,13 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-
-namespace VictoriaMetrics.VictoriaMetrics.Client.Content
+namespace VictoriaMetrics.Client.Content
 {
     /// <summary>
     /// https://github.com/WebApiContrib/WebAPIContrib/blob/master/src/WebApiContrib/Content/CompressedContent.cs

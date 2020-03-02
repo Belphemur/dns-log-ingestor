@@ -1,7 +1,7 @@
-using VictoriaMetrics.VictoriaMetrics.Exceptions;
-using VictoriaMetrics.VictoriaMetrics.Models.Metrics;
+using VictoriaMetrics.Exceptions;
+using VictoriaMetrics.Models.Metrics;
 
-namespace VictoriaMetrics.VictoriaMetrics.Services.Converters
+namespace VictoriaMetrics.Services.Converters
 {
     public interface IMetricConverter
     {

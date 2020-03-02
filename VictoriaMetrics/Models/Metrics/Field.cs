@@ -1,4 +1,4 @@
-namespace VictoriaMetrics.VictoriaMetrics.Models.Metrics
+namespace VictoriaMetrics.Models.Metrics
 {
     /// <summary>
     /// Field to record to the metric

@@ -1,4 +1,4 @@
-﻿namespace VictoriaMetrics.VictoriaMetrics.Models.Configuration
+﻿namespace VictoriaMetrics.Models.Configuration
 {
     public class VictoriaConfig
     {

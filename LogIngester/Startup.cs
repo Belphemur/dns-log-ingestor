@@ -9,10 +9,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Polly;
 using Polly.Extensions.Http;
-using VictoriaMetrics.VictoriaMetrics.Client;
-using VictoriaMetrics.VictoriaMetrics.Models.Configuration;
-using VictoriaMetrics.VictoriaMetrics.Services.Converters;
-using VictoriaMetrics.VictoriaMetrics.Services.Formatters;
+using VictoriaMetrics.Client;
+using VictoriaMetrics.Models.Configuration;
+using VictoriaMetrics.Services.Converters;
+using VictoriaMetrics.Services.Formatters;
 
 namespace LogIngester
 {

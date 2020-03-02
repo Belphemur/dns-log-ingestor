@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace VictoriaMetrics.VictoriaMetrics.Extensions
+namespace VictoriaMetrics.Extensions
 {
     public static class Linq
     {

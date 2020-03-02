@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using VictoriaMetrics.VictoriaMetrics.Exceptions;
-using VictoriaMetrics.VictoriaMetrics.Models.Attributes;
-using VictoriaMetrics.VictoriaMetrics.Models.Metrics;
-using Field = VictoriaMetrics.VictoriaMetrics.Models.Attributes.Field;
-using FieldObj = VictoriaMetrics.VictoriaMetrics.Models.Metrics.Field;
-using Tag = VictoriaMetrics.VictoriaMetrics.Models.Attributes.Tag;
-using TagObj = VictoriaMetrics.VictoriaMetrics.Models.Metrics.Tag;
+using VictoriaMetrics.Exceptions;
+using VictoriaMetrics.Models.Attributes;
+using VictoriaMetrics.Models.Metrics;
+using Field = VictoriaMetrics.Models.Attributes.Field;
+using FieldObj = VictoriaMetrics.Models.Metrics.Field;
+using Tag = VictoriaMetrics.Models.Attributes.Tag;
+using TagObj = VictoriaMetrics.Models.Metrics.Tag;
 
-namespace VictoriaMetrics.VictoriaMetrics.Services.Converters
+namespace VictoriaMetrics.Services.Converters
 {
     public class MetricConverter : IMetricConverter
     {

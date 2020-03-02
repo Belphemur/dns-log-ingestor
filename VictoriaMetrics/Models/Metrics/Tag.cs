@@ -1,4 +1,4 @@
-namespace VictoriaMetrics.VictoriaMetrics.Models.Metrics
+namespace VictoriaMetrics.Models.Metrics
 {
     /// <summary>
     /// Tag that can be applied to a Metric
