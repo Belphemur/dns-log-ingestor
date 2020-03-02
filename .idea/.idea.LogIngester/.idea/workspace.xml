@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Add support for Batch&#10;&#10;Support for GZIP">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Add Polly">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester.sln" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/InfluxDbConfig.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/WorkerConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/WorkerConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/LogIngester.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/LogIngester.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IIngestWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IIngestWorker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LogIngester/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Content/CompressedContent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Content/CompressedContent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/IVictoriaMetricClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/IVictoriaMetricClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Extensions/Linq.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Extensions/Linq.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Attributes/Attributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Attributes/Attributes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Field.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Field.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Metric.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Metric.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Tag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Tag.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Converters/IMetricConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Converters/IMetricConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/IMetricFormatter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/IMetricFormatter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +98,6 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" />
-        <option value="$PROJECT_DIR$/LogIngester/appsettings.json" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/InfluxDbConfig.cs" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/VictoriaConfig.cs" />
         <option value="$PROJECT_DIR$/LogIngester/VictoriaMetrics/Annotations.cs" />
@@ -110,7 +111,6 @@
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Model/Field.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Model/Metric.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Formatter/IMetricFormatter.cs" />
-        <option value="$PROJECT_DIR$/LogIngester/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Formatter/LineFormatter.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.FieldException.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Exceptions/VictoriaMetricClient.FieldException.cs" />
@@ -122,6 +122,9 @@
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/appsettings.Development.json" />
+        <option value="$PROJECT_DIR$/LogIngester/appsettings.json" />
+        <option value="$PROJECT_DIR$/LogIngester/Polly/PollyConfigurationOption.cs" />
         <option value="$PROJECT_DIR$/LogIngester/Startup.cs" />
       </list>
     </option>
@@ -487,7 +490,7 @@
       <workItem from="1583099114809" duration="4038000" />
       <workItem from="1583103177914" duration="48000" />
       <workItem from="1583103238064" duration="10030000" />
-      <workItem from="1583113330955" duration="6577000" />
+      <workItem from="1583113330955" duration="7369000" />
     </task>
     <task id="LOCAL-00001" summary="First controller">
       <created>1583103271273</created>
@@ -559,7 +562,21 @@
       <option name="project" value="LOCAL" />
       <updated>1583119426054</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="First working version of log sender">
+      <created>1583120032173</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1583120032173</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add Polly">
+      <created>1583120602594</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1583120602594</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,97 +604,107 @@
     <MESSAGE value="Add base for Victoria Lib" />
     <MESSAGE value="Put teh last piece of the client together" />
     <MESSAGE value="Add support for Batch&#10;&#10;Support for GZIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add support for Batch&#10;&#10;Support for GZIP" />
+    <MESSAGE value="First working version of log sender" />
+    <MESSAGE value="Add Polly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Polly" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Code_Cleanup_Options" timestamp="1583120707517">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Code_Cleanup_Options/0.0.1920.1040@0.0.1920.1040" timestamp="1583120707517" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583101990239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583101990239" />
+    <state x="707" y="385" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1583120709818">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="385" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583120709818" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1583109733327">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583109733327" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.4.bottom" timestamp="1583119894500">
+    <state width="1877" height="348" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894500" />
-    <state width="1877" height="348" key="GridCell.Tab.4.center" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.4.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.4.center" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.4.left" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.4.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.4.left" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
-    <state width="1877" height="348" key="GridCell.Tab.4.right" timestamp="1583119894499">
+    <state width="1877" height="348" key="GridCell.Tab.4.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
+    <state width="1877" height="348" key="GridCell.Tab.4.right" timestamp="1583120062717">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583119894499" />
+    <state width="1877" height="348" key="GridCell.Tab.4.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583120062717" />
     <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size" timestamp="1583113214502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

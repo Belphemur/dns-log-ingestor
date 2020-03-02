@@ -1,5 +1,4 @@
 using System;
-using System.Net;
 using System.Net.Http;
 using LogIngester.DnsIngest.Configuration;
 using LogIngester.DnsIngest.Services;
@@ -59,7 +58,10 @@ namespace LogIngester
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
             app.UseRouting();
 
@@ -73,7 +75,7 @@ namespace LogIngester
             var jitterer = new Random();
             return HttpPolicyExtensions
                    .HandleTransientHttpError()
-                   .OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
+                   .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
                    .WaitAndRetryAsync(6, // exponential back-off plus some jitter
                        retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
                                        + TimeSpan.FromMilliseconds(jitterer.Next(0, 100))
