@@ -82,9 +82,9 @@ namespace LogIngester.DnsIngest.Services
             long count = _logsToProcess.Count;
             var  tasks = new List<Task>();
 
-            for (var i = 0; i < _workerConfig.Workers; i++)
+            Task BuildTask()
             {
-                tasks.Add(Task.Run(() =>
+                return Task.Run(() =>
                 {
                     while (Interlocked.Read(ref count) > 0)
                     {
@@ -118,7 +118,12 @@ namespace LogIngester.DnsIngest.Services
                             _logger.Log(LogLevel.Critical, "Can't add entry {Domain}", log.Domain);
                         }
                     }
-                }, token));
+                }, token);
+            }
+
+            for (var i = 0; i < _workerConfig.Workers; i++)
+            {
+                tasks.Add(BuildTask());
             }
 
             await Task.WhenAll(tasks);
