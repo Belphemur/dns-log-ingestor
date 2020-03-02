@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using VictoriaMetrics.VictoriaMetrics.Models.Metrics;
@@ -22,5 +23,21 @@ namespace VictoriaMetrics.VictoriaMetrics.Client
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         Task SendMetricAsync<T>(T toSend, CancellationToken cancellationToken) where T : class;
+
+        /// <summary>
+        /// Send metrics in batch
+        /// </summary>
+        /// <param name="metrics"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task SendBatchMetricsAsync(IEnumerable<Metric> metrics, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Send metrics in batch
+        /// </summary>
+        /// <param name="metrics"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task SendBatchMetricsAsync<T>(IEnumerable<T> metrics, CancellationToken cancellationToken) where T : class;
     }
 }

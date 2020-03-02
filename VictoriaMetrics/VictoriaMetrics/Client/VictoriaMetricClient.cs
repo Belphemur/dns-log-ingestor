@@ -1,15 +1,17 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
-using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using VictoriaMetrics.VictoriaMetrics.Client.Content;
 using VictoriaMetrics.VictoriaMetrics.Exceptions;
-using VictoriaMetrics.VictoriaMetrics.Models.Attributes;
+using VictoriaMetrics.VictoriaMetrics.Extensions;
 using VictoriaMetrics.VictoriaMetrics.Models.Configuration;
 using VictoriaMetrics.VictoriaMetrics.Models.Metrics;
 using VictoriaMetrics.VictoriaMetrics.Services.Converters;
 using VictoriaMetrics.VictoriaMetrics.Services.Formatters;
-using Tag = VictoriaMetrics.VictoriaMetrics.Models.Attributes.Tag;
 
 namespace VictoriaMetrics.VictoriaMetrics.Client
 {
@@ -40,8 +42,10 @@ namespace VictoriaMetrics.VictoriaMetrics.Client
                 throw new FieldException("Need to have minimum one field");
             }
 
-            return _httpClient.PostAsync("write", new StringContent(_metricFormatter.ToLine(metric)), cancellationToken);
+            var content = _metricFormatter.ToLine(metric);
+            return WriteAsync(content, cancellationToken);
         }
+
 
         /// <summary>
         /// Send a metric to victoria metrics server
@@ -53,6 +57,41 @@ namespace VictoriaMetrics.VictoriaMetrics.Client
         public Task SendMetricAsync<T>(T toSend, CancellationToken cancellationToken) where T : class
         {
             return SendMetricAsync(_converter.ToMetric(toSend), cancellationToken);
+        }
+
+        /// <summary>
+        /// Send metrics in batch
+        /// </summary>
+        /// <param name="metrics"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task SendBatchMetricsAsync(IEnumerable<Metric> metrics, CancellationToken cancellationToken)
+        {
+            var chunks = metrics.Where(metric => metric.Fields.Count > 0).Chunk(100);
+            foreach (var chunk in chunks)
+            {
+                var content = string.Join("\n", chunk.Select(_metricFormatter.ToLine));
+                await WriteAsync(content, cancellationToken);
+            }
+        }
+
+        /// <summary>
+        /// Send metrics in batch
+        /// </summary>
+        /// <param name="metrics"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public Task SendBatchMetricsAsync<T>(IEnumerable<T> metrics, CancellationToken cancellationToken) where T : class
+        {
+            return SendBatchMetricsAsync(metrics.Select(_converter.ToMetric), cancellationToken);
+        }
+
+        private Task WriteAsync(string content, CancellationToken cancellationToken)
+        {
+            using var httpContent       = new StringContent(content, Encoding.UTF8, "text/plain");
+            using var compressedContent = new CompressedContent(httpContent, CompressedContent.Compression.gzip);
+
+            return _httpClient.PostAsync("write", compressedContent, cancellationToken);
         }
     }
 }
