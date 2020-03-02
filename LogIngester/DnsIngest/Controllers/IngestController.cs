@@ -22,7 +22,11 @@ namespace LogIngester.DnsIngest.Controllers
         [HttpPost]
         public IActionResult Ingest([FromBody] DnsLog dnsLog, CancellationToken token)
         {
-            return Ok(_ingestWorker.AddToProcess(dnsLog));
+            var response = new
+            {
+                InQueue = _ingestWorker.AddToProcess(dnsLog)
+            };
+            return Ok(response);
         }
     }
 }

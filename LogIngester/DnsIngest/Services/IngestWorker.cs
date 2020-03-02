@@ -2,12 +2,11 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
-using LogIngester.Configuration;
+using LogIngester.DnsIngest.Configuration;
 using LogIngester.DnsIngest.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Vibrant.InfluxDB.Client;
+using VictoriaMetrics.VictoriaMetrics.Client;
 using Timer = System.Timers.Timer;
 
 
@@ -15,25 +14,22 @@ namespace LogIngester.DnsIngest.Services
 {
     public class IngestWorker : IIngestWorker
     {
-        private readonly InfluxClient             _influxClient;
-        private readonly WorkerConfig             _workerConfig;
-        private readonly InfluxDbConfig           _influxDbConfig;
-        private readonly ILogger<IngestWorker>    _logger;
-        private readonly ConcurrentQueue<DnsLog>  _logsToProcess = new ConcurrentQueue<DnsLog>();
-        private readonly Timer                    _timer;
-        private readonly CancellationTokenSource  _tokenSource = new CancellationTokenSource();
+        private readonly IVictoriaMetricClient   _victoriaMetricClient;
+        private readonly WorkerConfig            _workerConfig;
+        private readonly ILogger<IngestWorker>   _logger;
+        private readonly ConcurrentQueue<DnsLog> _logsToProcess = new ConcurrentQueue<DnsLog>();
+        private readonly Timer                   _timer;
+        private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
 
-        public IngestWorker(InfluxClient             influxClient,
+        public IngestWorker(IVictoriaMetricClient    victoriaMetricClient,
                             WorkerConfig             workerConfig,
-                            InfluxDbConfig           influxDbConfig,
                             ILogger<IngestWorker>    logger,
                             IHostApplicationLifetime lifetime)
         {
-            _influxClient   = influxClient;
-            _workerConfig   = workerConfig;
-            _influxDbConfig = influxDbConfig;
-            _logger         = logger;
-            _timer = BuildTimer(workerConfig);
+            _victoriaMetricClient = victoriaMetricClient;
+            _workerConfig         = workerConfig;
+            _logger               = logger;
+            _timer                = BuildTimer(workerConfig);
 
             lifetime.ApplicationStopping.Register(async () =>
             {
@@ -50,8 +46,8 @@ namespace LogIngester.DnsIngest.Services
             {
                 AutoReset = true
             };
-            _timer.Elapsed += async (sender, args) => await DoWork(_tokenSource.Token);
-            _timer.Start();
+            timer.Elapsed += async (sender, args) => await DoWork(_tokenSource.Token);
+            timer.Start();
             return timer;
         }
 
@@ -77,7 +73,7 @@ namespace LogIngester.DnsIngest.Services
                 return;
             }
 
-            var domainToSend = new ConcurrentDictionary<DnsLog.DomainKey, DnsLog>();
+            var domainToSend = new ConcurrentDictionary<string, DnsLog>();
 
             long count = _logsToProcess.Count;
             var  tasks = new List<Task>();
@@ -104,10 +100,12 @@ namespace LogIngester.DnsIngest.Services
 
                         if (domainToSend.TryGetValue(log.Domain, out var existingValue))
                         {
-                            log += existingValue;
-                            if (!domainToSend.TryUpdate(log.Domain, log, existingValue))
+                            var toLog = log + existingValue;
+                            if (!domainToSend.TryUpdate(toLog.Domain, toLog, existingValue))
                             {
-                                _logger.Log(LogLevel.Critical, "Can't update entry {Domain}", log.Domain);
+                                _logger.Log(LogLevel.Warning, "Can't update entry {Domain}. Re-queuing entry.", log.Domain);
+                                _logsToProcess.Enqueue(log);
+                                Interlocked.Increment(ref count);
                             }
 
                             continue;
@@ -115,7 +113,9 @@ namespace LogIngester.DnsIngest.Services
 
                         if (!domainToSend.TryAdd(log.Domain, log))
                         {
-                            _logger.Log(LogLevel.Critical, "Can't add entry {Domain}", log.Domain);
+                            _logger.Log(LogLevel.Warning, "Can't add entry {Domain}. Re-queuing entry.", log.Domain);
+                            _logsToProcess.Enqueue(log);
+                            Interlocked.Increment(ref count);
                         }
                     }
                 }, token);
@@ -127,7 +127,10 @@ namespace LogIngester.DnsIngest.Services
             }
 
             await Task.WhenAll(tasks);
-            await _influxClient.WriteAsync(_influxDbConfig.Db, domainToSend.Values);
+
+            if (domainToSend.IsEmpty) return;
+
+            await _victoriaMetricClient.SendBatchMetricsAsync(domainToSend.Values, token);
         }
     }
 }

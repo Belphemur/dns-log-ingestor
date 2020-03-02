@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Vibrant.InfluxDB.Client;
+using VictoriaMetrics.VictoriaMetrics.Models.Attributes;
 
 namespace LogIngester.DnsIngest.Models
 {
+    [Measurement("dns")]
     public class DnsLog
     {
         [JsonConverter(typeof(StringEnumConverter))]
@@ -15,57 +15,17 @@ namespace LogIngester.DnsIngest.Models
             Blocked
         }
 
-        public struct DomainKey : IEquatable<DomainKey>
-        {
-            [NotNull]
-            public string Name { get; }
-
-            public DomainKey(string name)
-            {
-                Name = name;
-            }
-
-            public bool Equals(DomainKey other)
-            {
-                return Name == other.Name;
-            }
-
-            public override bool Equals(object? obj)
-            {
-                return obj is DomainKey other && Equals(other);
-            }
-
-            public override int GetHashCode()
-            {
-                return Name.GetHashCode();
-            }
-
-            public static implicit operator DomainKey(string domainName) => new DomainKey(domainName);
-            public static implicit operator string(DomainKey key)        => key.Name;
-        }
-
-        [InfluxTimestamp]
+        [Timestamp]
         public DateTime Timestamp { get; } = DateTime.UtcNow;
 
-        [InfluxTag("domain")]
-        public DomainKey Domain { get; }
+        [Tag( "domain")]
+        public string Domain { get; set; }
 
-        [InfluxTag("state")]
-        public QueryState State { get;}
+        [Tag( "state")]
+        public QueryState State { get; set; }
 
-        [InfluxField("query")]
-        public long Query { get; private set; }
-
-        public DnsLog(DomainKey domain, QueryState state, long query)
-        {
-            Domain = domain;
-            State = state;
-            Query = query;
-        }
-
-        public DnsLog()
-        {
-        }
+        [Field( "query")]
+        public long Query { get; set; }
 
         public static DnsLog operator +(DnsLog a) => a;
 

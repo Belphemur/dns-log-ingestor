@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using LogIngester.Configuration;
+using LogIngester.DnsIngest.Configuration;
 using LogIngester.DnsIngest.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,7 +13,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Vibrant.InfluxDB.Client;
+using VictoriaMetrics.VictoriaMetrics.Client;
+using VictoriaMetrics.VictoriaMetrics.Models.Configuration;
+using VictoriaMetrics.VictoriaMetrics.Services.Converters;
+using VictoriaMetrics.VictoriaMetrics.Services.Formatters;
 
 namespace LogIngester
 {
@@ -31,19 +34,18 @@ namespace LogIngester
         {
             services.AddHttpClient();
             services.AddControllers().AddNewtonsoftJson();
-            
+
+            services.AddSingleton<IMetricFormatter<string>, LineFormatter>();
+            services.AddSingleton<IMetricConverter, MetricConverter>();
+
             services.AddSingleton(provider =>
             {
-                var influxDbConfig = new InfluxDbConfig();
-                Configuration.GetSection("InfluxDb").Bind(influxDbConfig);
+                var influxDbConfig = new VictoriaConfig();
+                Configuration.GetSection("VictoriaMetrics").Bind(influxDbConfig);
                 return influxDbConfig;
             });
             
-            services.AddSingleton(provider =>
-            {
-                var influxDbConfig = provider.GetService<InfluxDbConfig>();
-                return new InfluxClient(new Uri(influxDbConfig.Uri), influxDbConfig.Username, influxDbConfig.Password, provider.GetService<HttpClient>());
-            });
+            
             services.AddSingleton(provider =>
             {
                 var workerConfig = new WorkerConfig();
@@ -51,6 +53,7 @@ namespace LogIngester
                 return workerConfig;
             });
 
+            services.AddHttpClient<IVictoriaMetricClient, VictoriaMetricClient>();
             services.AddSingleton<IIngestWorker, IngestWorker>();
         }
 

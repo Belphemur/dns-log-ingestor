@@ -1,6 +1,6 @@
 using System;
 
-namespace LogIngester.Configuration
+namespace LogIngester.DnsIngest.Configuration
 {
     public class WorkerConfig
     {

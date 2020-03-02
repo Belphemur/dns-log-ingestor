@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\Antoine\.Rider2019.3\config\scratches" t="IncludeRecursive" />
     <e p="C:\Users\Antoine\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Antoine\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_LogIngester.428571331.00" t="ExcludeRecursive" />
     <e p="C:\Users\Antoine\source\repos\LogIngester" t="IncludeFlat">
@@ -10,7 +11,6 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="DnsIngest" t="Include">
           <e p="Configuration" t="Include">
-            <e p="InfluxDbConfig.cs" t="Include" />
             <e p="WorkerConfig.cs" t="Include" />
           </e>
           <e p="Controllers" t="Include">
@@ -40,6 +40,57 @@
       </e>
       <e p="LogIngester.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
+      <e p="VictoriaMetrics" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="VictoriaMetrics.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="VictoriaMetrics" t="Include">
+          <e p="Client" t="Include">
+            <e p="Content" t="Include">
+              <e p="CompressedContent.cs" t="Include" />
+            </e>
+            <e p="IVictoriaMetricClient.cs" t="Include" />
+            <e p="VictoriaMetricClient.cs" t="Include" />
+          </e>
+          <e p="Exceptions" t="Include">
+            <e p="AttributeNotFound.cs" t="Include" />
+            <e p="FieldException.cs" t="Include" />
+          </e>
+          <e p="Extensions" t="Include">
+            <e p="Linq.cs" t="Include" />
+          </e>
+          <e p="Models" t="Include">
+            <e p="Attributes" t="Include">
+              <e p="Attributes.cs" t="Include" />
+            </e>
+            <e p="Configuration" t="Include">
+              <e p="VictoriaConfig.cs" t="Include" />
+            </e>
+            <e p="Metrics" t="Include">
+              <e p="BaseModel.cs" t="Include" />
+              <e p="Field.cs" t="Include" />
+              <e p="Metric.cs" t="Include" />
+              <e p="Tag.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Services" t="Include">
+            <e p="Converters" t="Include">
+              <e p="IMetricConverter.cs" t="Include" />
+              <e p="MetricConverter.cs" t="Include" />
+            </e>
+            <e p="Formatters" t="Include">
+              <e p="IMetricFormatter.cs" t="Include" />
+              <e p="LineFormatter.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="VictoriaMetrics.csproj" t="IncludeRecursive" />
+      </e>
     </e>
   </component>
 </project>
