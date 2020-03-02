@@ -88,17 +88,6 @@ namespace VictoriaMetrics.VictoriaMetrics.Client
             return SendBatchMetricsAsync(metrics.Select(_converter.ToMetric), cancellationToken);
         }
 
-        private static HttpContent CompressRequestContent(StringContent content)
-        {
-            var       compressedStream = new MemoryStream();
-            using var gzipStream       = new GZipStream(compressedStream, CompressionMode.Compress);
-            content.CopyToAsync(gzipStream);
-
-            var httpContent = new ByteArrayContent(compressedStream.ToArray());
-            httpContent.Headers.ContentEncoding.Add("gzip");
-            return httpContent;
-        }
-
         private Task WriteAsync(string content, CancellationToken cancellationToken)
         {
             var httpContent       = new StringContent(content, Encoding.UTF8, "application/x-www-form-urlencoded");
