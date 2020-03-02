@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Fix nanosecond problems">
+    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Cleanup namespaces">
+      <changelist_data />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VictoriaMetrics/Client/VictoriaMetricClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VictoriaMetrics/Client/VictoriaMetricClient.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +20,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/38/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/23/Environment.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CC9A36AF-C5ED-4B22-B18A-7E1676C55E5E/9/InfluxClientExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Extensions/Linq.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Extensions/Linq.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8D12B97-8555-48F6-96B3-BBC6BF89FCBA/3C/HttpContent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/Startup.cs" root0="FORCE_HIGHLIGHTING" />
@@ -35,12 +35,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F3325C05-7891-45B4-AC78-327FC18BDC7C/8/ControllerEndpointRouteBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F3325C05-7891-45B4-AC78-327FC18BDC7C/18C/MvcCoreServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CCD71D5C-6409-42FE-B7D4-84249D40542B/1/MvcServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/IVictoriaMetricClient.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Converters/IMetricConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Client/IVictoriaMetricClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Services/Converters/IMetricConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8DA5E36-5373-4031-BC4F-5536C9B0AA38/4/HostingHostBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Converters/MetricConverter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Exceptions/AttributeNotFound.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Exceptions/FieldException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Services/Converters/MetricConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Exceptions/AttributeNotFound.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Exceptions/FieldException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8D12B97-8555-48F6-96B3-BBC6BF89FCBA/39/HttpClientHandler.Core.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F61998C3-432A-421C-8B67-265CB57C2A5A/a6/10ae9c70/LoggingServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633D4ECF-0431-465A-8259-0880EB8B1618/f9/339f2da9/WriteApi.cs" root0="SKIP_HIGHLIGHTING" />
@@ -48,25 +48,25 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633D4ECF-0431-465A-8259-0880EB8B1618/55/4027bae0/BatchWriteOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633D4ECF-0431-465A-8259-0880EB8B1618/36/e37235d1/BatchWriteMeasurement`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/WorkerConfig.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Attributes/Attributes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Models/Attributes/Attributes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633D4ECF-0431-465A-8259-0880EB8B1618/e0/a384e45b/InfluxDBClientFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/IMetricFormatter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Client/VictoriaMetricClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Services/Formatters/IMetricFormatter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633D4ECF-0431-465A-8259-0880EB8B1618/a6/559f0c0c/InfluxDBClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BBB3B884-123D-47EA-9CD1-5BED540D02AE/7d/02ab66e9/AllowNullAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633D4ECF-0431-465A-8259-0880EB8B1618/ae/d79b92ac/InfluxDBClientOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Metric.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/BaseModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Field.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Models/Metrics/Metric.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Models/Metrics/BaseModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Models/Metrics/Field.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8DA5E36-5373-4031-BC4F-5536C9B0AA38/2/Host.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Metrics/Tag.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Services/Formatters/LineFormatter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Models/Metrics/Tag.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Services/Formatters/LineFormatter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7BF30116-82F1-4B18-A6E0-358914B66C1D/6/IConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0A34FBB7-033C-43D2-B412-0EA93536E085/9/HttpsRedirectionBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/3C8/ConcurrentQueue.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/633D4ECF-0431-465A-8259-0880EB8B1618/25/cc70581b/WriteOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2B1F4DA0-A40D-4521-AA7B-E3EBACA28167/9f/a3a9d1ee/HttpPolicyExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Models/Configuration/VictoriaConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Models/Configuration/VictoriaConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CC9A36AF-C5ED-4B22-B18A-7E1676C55E5E/8/InfluxClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ACF3BB6B-D63D-4F2F-B9D4-174126FEB909/8/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -75,7 +75,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8D12B97-8555-48F6-96B3-BBC6BF89FCBA/37/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CC9A36AF-C5ED-4B22-B18A-7E1676C55E5E/42/IInfluxClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4B916C7A-496F-4F50-B360-A23F7A3C1088/4/WebHost.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/Content/CompressedContent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/VictoriaMetrics/Client/Content/CompressedContent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4B916C7A-496F-4F50-B360-A23F7A3C1088/1/GenericHostBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -124,6 +124,8 @@
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" />
         <option value="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics.csproj" />
         <option value="$PROJECT_DIR$/LogIngester/Program.cs" />
+        <option value="$PROJECT_DIR$/VictoriaMetrics/Client/IVictoriaMetricClient.cs" />
+        <option value="$PROJECT_DIR$/VictoriaMetrics/Client/VictoriaMetricClient.cs" />
       </list>
     </option>
   </component>
@@ -620,7 +622,7 @@
       <workItem from="1583099114809" duration="4038000" />
       <workItem from="1583103177914" duration="48000" />
       <workItem from="1583103238064" duration="10030000" />
-      <workItem from="1583113330955" duration="16302000" />
+      <workItem from="1583113330955" duration="17050000" />
     </task>
     <task id="LOCAL-00001" summary="First controller">
       <created>1583103271273</created>
@@ -741,7 +743,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583126014523</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Cleanup namespaces">
+      <created>1583130718178</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1583130718178</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -775,7 +784,9 @@
     <MESSAGE value="Working client" />
     <MESSAGE value="Add precision" />
     <MESSAGE value="Fix nanosecond problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix nanosecond problems" />
+    <MESSAGE value="Cleanup namespaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup namespaces" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Code_Cleanup_Options" timestamp="1583120747322">
@@ -937,14 +948,14 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs</url>
+          <url>file://$PROJECT_DIR$/VictoriaMetrics/Client/VictoriaMetricClient.cs</url>
           <line>93</line>
           <properties documentPath="$PROJECT_DIR$/VictoriaMetrics/VictoriaMetrics/Client/VictoriaMetricClient.cs" initialLine="104">
             <startOffsets>
-              <option value="3691" />
+              <option value="3561" />
             </startOffsets>
             <endOffsets>
-              <option value="3786" />
+              <option value="3656" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />

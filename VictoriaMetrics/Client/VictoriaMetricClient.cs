@@ -68,11 +68,10 @@ namespace VictoriaMetrics.Client
         public async Task SendBatchMetricsAsync(IEnumerable<Metric> metrics, CancellationToken cancellationToken)
         {
             var chunks = metrics.Where(metric => metric.Fields.Count > 0).Chunk(100);
-            foreach (var chunk in chunks)
-            {
-                var content = string.Join("\n", chunk.Select(_metricFormatter.ToLine));
-                await WriteAsync(content, cancellationToken);
-            }
+            var tasks = chunks.Select(chunk => string.Join("\n", chunk.Select(_metricFormatter.ToLine)))
+                              .Select(content => WriteAsync(content, cancellationToken));
+
+            await Task.WhenAll(tasks);
         }
 
         /// <summary>
