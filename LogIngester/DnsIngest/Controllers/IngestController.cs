@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using LogIngester.DnsIngest.Models;
+using LogIngester.DnsIngest.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,20 +12,17 @@ namespace LogIngester.DnsIngest.Controllers
     [Route("ingest")]
     public class IngestController : Controller
     {
-        private readonly ILogger<IngestController> _logger;
+        private readonly IIngestWorker _ingestWorker;
 
-        public IngestController(ILogger<IngestController> logger)
+        public IngestController(IIngestWorker ingestWorker)
         {
-            _logger = logger;
+            _ingestWorker = ingestWorker;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Ingest([FromBody] DnsLog dnsLog, CancellationToken token)
+        public IActionResult Ingest([FromBody] DnsLog dnsLog, CancellationToken token)
         {
-            _logger.Log(LogLevel.Information, "Request received", dnsLog);
-            dnsLog.Timestamp = DateTime.UtcNow;
-            dnsLog.Query++;
-            return Ok(dnsLog);
+            return Ok(_ingestWorker.AddToProcess(dnsLog));
         }
     }
 }

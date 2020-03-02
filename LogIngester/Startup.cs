@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using LogIngester.Configuration;
+using LogIngester.DnsIngest.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,12 +31,27 @@ namespace LogIngester
         {
             services.AddHttpClient();
             services.AddControllers().AddNewtonsoftJson();
+            
             services.AddSingleton(provider =>
             {
-                var influxDbConfig = new InfluxDb();
+                var influxDbConfig = new InfluxDbConfig();
                 Configuration.GetSection("InfluxDb").Bind(influxDbConfig);
+                return influxDbConfig;
+            });
+            
+            services.AddSingleton(provider =>
+            {
+                var influxDbConfig = provider.GetService<InfluxDbConfig>();
                 return new InfluxClient(new Uri(influxDbConfig.Uri), influxDbConfig.Username, influxDbConfig.Password, provider.GetService<HttpClient>());
             });
+            services.AddSingleton(provider =>
+            {
+                var workerConfig = new WorkerConfig();
+                Configuration.GetSection("Worker").Bind(workerConfig);
+                return workerConfig;
+            });
+
+            services.AddSingleton<IIngestWorker, IngestWorker>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,10 +66,7 @@ namespace LogIngester
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="e03efaac-d8aa-461e-b19d-7eeb2d3817b9" name="Default Changelist" comment="Add ingestion worker">
+      <change afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/InfluxDbConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/WorkerConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LogIngester/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/Configuration/InfluxDb.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IIngestWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IIngestWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LogIngester/LogIngester.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/LogIngester.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LogIngester/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Properties/launchSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LogIngester/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LogIngester/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/LogIngester/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,33 +26,47 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7BF30116-82F1-4B18-A6E0-358914B66C1D/6/IConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/WorkerConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F3325C05-7891-45B4-AC78-327FC18BDC7C/18C/MvcCoreServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0A34FBB7-033C-43D2-B412-0EA93536E085/9/HttpsRedirectionBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CCD71D5C-6409-42FE-B7D4-84249D40542B/1/MvcServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/3C8/ConcurrentQueue.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/LogIngester/Configuration/InfluxDb.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/InfluxDbConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Services/IIngestWorker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/D8DA5E36-5373-4031-BC4F-5536C9B0AA38/4/HostingHostBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BBB3B884-123D-47EA-9CD1-5BED540D02AE/134/Interlocked.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/76FF8FE3-4BA0-4932-A677-43B73B26D2D6/F/IHostApplicationLifetime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/CC9A36AF-C5ED-4B22-B18A-7E1676C55E5E/8/InfluxClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0541C30A-F46F-4255-AD44-70C88A0B7869/8/HttpClientFactoryServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/A3D921A9-11E3-4FDC-B7EF-AD57E8B7AB13/E/Timer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F61998C3-432A-421C-8B67-265CB57C2A5A/a6/10ae9c70/LoggingServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4B916C7A-496F-4F50-B360-A23F7A3C1088/4/WebHost.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4B916C7A-496F-4F50-B360-A23F7A3C1088/1/GenericHostBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F3325C05-7891-45B4-AC78-327FC18BDC7C/8/ControllerEndpointRouteBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/LogIngester/Configuration/InfluxDb.cs" />
-        <option value="$PROJECT_DIR$/LogIngester/appsettings.json" />
-        <option value="$PROJECT_DIR$/LogIngester/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/LogIngester/Dns/Model/DnsLog.cs" />
         <option value="$PROJECT_DIR$/LogIngester/Dns/Controllers/Ingest.cs" />
         <option value="$PROJECT_DIR$/LogIngester/Dns/Controllers/IngestController.cs" />
         <option value="$PROJECT_DIR$/LogIngester/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/LogIngester/Program.cs" />
-        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/WorkerConfig.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Configuration/InfluxDbConfig.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/appsettings.Development.json" />
+        <option value="$PROJECT_DIR$/LogIngester/appsettings.json" />
         <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Models/DnsLog.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" />
         <option value="$PROJECT_DIR$/LogIngester/Startup.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IIngestWorker.cs" />
+        <option value="$PROJECT_DIR$/LogIngester/DnsIngest/Services/IngestWorker.cs" />
       </list>
     </option>
   </component>
@@ -120,7 +136,30 @@
       <updated>1583099113658</updated>
       <workItem from="1583099114809" duration="4038000" />
       <workItem from="1583103177914" duration="48000" />
+      <workItem from="1583103238064" duration="5392000" />
     </task>
+    <task id="LOCAL-00001" summary="First controller">
+      <created>1583103271273</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583103271273</updated>
+    </task>
+    <task id="LOCAL-00002" summary="First controller">
+      <created>1583103287362</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583103287363</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add ingestion worker">
+      <created>1583107666217</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583107666217</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,27 +178,32 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First controller" />
+    <MESSAGE value="Add ingestion worker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ingestion worker" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583101990239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583101990239" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1583103157568">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583107093748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1583103157568">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583107093748" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583107093748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1583103157567">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583107093748" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583107093748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157567" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1583103157568">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583107093748" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583107093748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583103157568" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583107093748" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583103157568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -228,28 +272,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1583099191064" />
+    <state x="721" y="200" key="RiderGenerateDialog" timestamp="1583108195033">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="721" y="200" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583108195033" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1583101521368">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583101521368" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs</url>
-          <line>23</line>
-          <properties documentPath="$PROJECT_DIR$/LogIngester/DnsIngest/Controllers/IngestController.cs" initialLine="23">
-            <startOffsets>
-              <option value="632" />
-            </startOffsets>
-            <endOffsets>
-              <option value="694" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

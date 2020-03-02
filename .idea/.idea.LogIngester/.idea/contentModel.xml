@@ -8,17 +8,21 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Configuration" t="Include">
-          <e p="InfluxDb.cs" t="Include" />
-        </e>
         <e p="DnsIngest" t="Include">
+          <e p="Configuration" t="Include">
+            <e p="InfluxDbConfig.cs" t="Include" />
+            <e p="WorkerConfig.cs" t="Include" />
+          </e>
           <e p="Controllers" t="Include">
             <e p="IngestController.cs" t="Include" />
           </e>
           <e p="Models" t="Include">
             <e p="DnsLog.cs" t="Include" />
           </e>
-          <e p="Services" t="Include" />
+          <e p="Services" t="Include">
+            <e p="IIngestWorker.cs" t="Include" />
+            <e p="IngestWorker.cs" t="Include" />
+          </e>
         </e>
         <e p="LogIngester.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">

@@ -8,6 +8,6 @@ namespace LogIngester.DnsIngest.Services
         /// Add DNS log to be processed
         /// </summary>
         /// <param name="log"></param>
-        void AddToProcess(DnsLog log);
+        int AddToProcess(DnsLog log);
     }
 }

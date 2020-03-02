@@ -11,9 +11,5 @@
       <PackageReference Include="Vibrant.InfluxDB.Client" Version="4.0.2" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="DnsIngest\Services" />
-    </ItemGroup>
-
 
 </Project>
