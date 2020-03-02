@@ -2,22 +2,42 @@ using System;
 
 namespace VictoriaMetrics.Attributes
 {
+    public abstract class NamedAttribute : Attribute
+    {
+        public string Name { get; }
+
+        protected NamedAttribute(string name)
+        {
+            Name = name;
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Class)]
+    public class Measurement : NamedAttribute
+    {
+        public Measurement(string name) : base(name)
+        {
+        }
+    }
+
     [AttributeUsage(AttributeTargets.Property)]
     public class Timestamp : Attribute
     {
-        
     }
-    
+
     [AttributeUsage(AttributeTargets.Property)]
-    public class Tag : Attribute
+    public class Tag : NamedAttribute
     {
-        public string Name { get; set; }
+        public Tag(string name) : base(name)
+        {
+        }
     }
-    
+
     [AttributeUsage(AttributeTargets.Property)]
-    public class Value : Attribute
+    public class Field : NamedAttribute
     {
-        public string Name { get; set; }
+        public Field(string name) : base(name)
+        {
+        }
     }
-    
 }
