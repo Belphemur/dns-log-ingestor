@@ -31,12 +31,19 @@ namespace LogIngester.DnsIngest.Models
 
         public static DnsLog operator +(DnsLog a, DnsLog b)
         {
+            DateTime? timestamp = null;
             if (a.Timestamp.HasValue && b.Timestamp.HasValue)
-                a.Timestamp = a.Timestamp.Value < b.Timestamp.Value ? a.Timestamp.Value : b.Timestamp.Value;
+                timestamp = a.Timestamp.Value < b.Timestamp.Value ? a.Timestamp.Value : b.Timestamp.Value;
             else if (!a.Timestamp.HasValue && b.Timestamp.HasValue)
-                a.Timestamp = b.Timestamp;
-            a.Query += b.Query;
-            return a;
+                timestamp = b.Timestamp;
+
+            return new DnsLog
+            {
+                Domain    = a.Domain,
+                Query     = a.Query + b.Query,
+                State     = a.State,
+                Timestamp = timestamp
+            };
         }
     }
 }
