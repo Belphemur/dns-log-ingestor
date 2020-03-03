@@ -42,16 +42,18 @@ namespace VictoriaMetrics.Services.Converters
                     switch (attribute)
                     {
                         case Tag tag:
-                            tags.Add(tag.Name, new TagObj
+                            var tagName = tag.Name ?? propertyInfo.Name.ToUnderscoreCase();
+                            tags.Add(tagName, new TagObj
                             {
-                                Name  = tag.Name ?? propertyInfo.Name.ToUnderscoreCase(),
+                                Name  = tagName,
                                 Value = propertyInfo.GetValue(toConvert).ToString()
                             });
                             continue;
                         case Field field:
-                            fields.Add(field.Name, new FieldObj
+                            var fieldName = field.Name ?? propertyInfo.Name.ToUnderscoreCase();
+                            fields.Add(fieldName, new FieldObj
                             {
-                                Name  = field.Name ?? propertyInfo.Name.ToUnderscoreCase(),
+                                Name  = fieldName,
                                 Value = (long) propertyInfo.GetValue(toConvert)
                             });
                             break;
