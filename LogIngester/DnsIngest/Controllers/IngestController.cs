@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
 using LogIngester.DnsIngest.Models;
 using LogIngester.DnsIngest.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace LogIngester.DnsIngest.Controllers
 {

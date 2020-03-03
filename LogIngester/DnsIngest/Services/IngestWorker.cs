@@ -99,7 +99,7 @@ namespace LogIngester.DnsIngest.Services
 
                         if (!_logsToProcess.TryDequeue(out var log))
                         {
-                            _logger.Log(LogLevel.Critical, "Can't get a log to process");
+                            _logger.Log(LogLevel.Warning, "Can't get a log to process");
                             return;
                         }
 
