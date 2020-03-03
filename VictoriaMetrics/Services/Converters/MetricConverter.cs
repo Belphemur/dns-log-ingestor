@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using VictoriaMetrics.Exceptions;
+using VictoriaMetrics.Extensions;
 using VictoriaMetrics.Models.Attributes;
 using VictoriaMetrics.Models.Metrics;
 using Field = VictoriaMetrics.Models.Attributes.Field;
@@ -43,14 +44,14 @@ namespace VictoriaMetrics.Services.Converters
                         case Tag tag:
                             tags.Add(tag.Name, new TagObj
                             {
-                                Name  = tag.Name,
+                                Name  = tag.Name ?? propertyInfo.Name.ToUnderscoreCase(),
                                 Value = propertyInfo.GetValue(toConvert).ToString()
                             });
                             continue;
                         case Field field:
                             fields.Add(field.Name, new FieldObj
                             {
-                                Name  = field.Name,
+                                Name  = field.Name ?? propertyInfo.Name.ToUnderscoreCase(),
                                 Value = (long) propertyInfo.GetValue(toConvert)
                             });
                             break;
@@ -63,7 +64,7 @@ namespace VictoriaMetrics.Services.Converters
 
             return new Metric
             {
-                Name      = measurementAtt.Name,
+                Name      = measurementAtt.Name ?? type.Name.ToUnderscoreCase(),
                 Tags      = tags,
                 Fields    = fields,
                 Timestamp = timestamp
