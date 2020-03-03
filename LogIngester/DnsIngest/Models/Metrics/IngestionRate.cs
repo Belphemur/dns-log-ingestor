@@ -6,14 +6,24 @@ namespace LogIngester.DnsIngest.Models.Metrics
     public class IngestionRate
     {
         [Tag]
-        public string Hostname { get; }
-        [Field]
-        public long Processed { get;  }
+        public string Hostname => System.Environment.MachineName;
 
-        public IngestionRate(long processed)
+        /// <summary>
+        /// Number of entry processed
+        /// </summary>
+        [Field]
+        public long Processed { get; }
+
+        /// <summary>
+        /// Aggregated result
+        /// </summary>
+        [Field]
+        public long Aggregated { get; }
+
+        public IngestionRate(long processed, long aggregated)
         {
-            Hostname = System.Environment.MachineName;
-            Processed = processed;
+            Processed  = processed;
+            Aggregated = aggregated;
         }
     }
 }

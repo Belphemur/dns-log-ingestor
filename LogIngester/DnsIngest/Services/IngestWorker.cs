@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LogIngester.DnsIngest.Configuration;
 using LogIngester.DnsIngest.Models;
+using LogIngester.DnsIngest.Models.Metrics;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using VictoriaMetrics.Client;
@@ -75,7 +76,9 @@ namespace LogIngester.DnsIngest.Services
 
             var domainToSend = new ConcurrentDictionary<string, DnsLog>();
 
-            long count = _logsToProcess.Count;
+            long count     = _logsToProcess.Count;
+            var  toProcess = count;
+
             _logger.LogInformation("Processing {count} entries.", count);
 
             if (count == 0)
@@ -139,7 +142,12 @@ namespace LogIngester.DnsIngest.Services
 
             try
             {
-                await _victoriaMetricClient.SendBatchMetricsAsync(domainToSend.Values, token);
+                var sendTasks = new[]
+                {
+                    _victoriaMetricClient.SendBatchMetricsAsync(domainToSend.Values, token),
+                    _victoriaMetricClient.SendMetricAsync(new IngestionRate(toProcess, domainToSend.Count), token)
+                };
+                await Task.WhenAll(sendTasks);
             }
             catch (Exception e)
             {
