@@ -20,6 +20,7 @@ namespace VictoriaMetrics.Client
         private readonly IMetricFormatter<string> _metricFormatter;
         private readonly IMetricConverter         _converter;
         private readonly HttpClient               _httpClient;
+        private readonly int                     _chunkSize;
 
         public VictoriaMetricClient(IMetricFormatter<string> metricFormatter, VictoriaConfig config, IMetricConverter converter, HttpClient httpClient)
         {
@@ -27,6 +28,7 @@ namespace VictoriaMetrics.Client
             _converter              = converter;
             _httpClient             = httpClient;
             _httpClient.BaseAddress = new Uri(config.Uri);
+            _chunkSize              = config.ChunkSize < 50 ? 50 : config.ChunkSize;
         }
 
         /// <summary>
@@ -67,7 +69,7 @@ namespace VictoriaMetrics.Client
         /// <returns></returns>
         public Task SendBatchMetricsAsync(IEnumerable<Metric> metrics, CancellationToken cancellationToken)
         {
-            var chunks = metrics.Where(metric => metric.Fields.Count > 0).Chunk(100);
+            var chunks = metrics.Where(metric => metric.Fields.Count > 0).Chunk(_chunkSize);
             var tasks = chunks.Select(chunk => string.Join("\n", chunk.Select(_metricFormatter.ToLine)))
                               .Select(content => WriteAsync(content, cancellationToken));
 
@@ -87,7 +89,7 @@ namespace VictoriaMetrics.Client
 
         private Task WriteAsync(string content, CancellationToken cancellationToken)
         {
-            var httpContent       = new StringContent(content, Encoding.UTF8, "application/x-www-form-urlencoded");
+            var httpContent       = new StringContent(content, Encoding.UTF8, "text/plain");
             var compressedContent = new CompressedContent(httpContent, CompressedContent.Compression.gzip);
 
             return _httpClient.PostAsync($"write?precision={_metricFormatter.Precision}", compressedContent, cancellationToken);
